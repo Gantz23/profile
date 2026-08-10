@@ -1,0 +1,484 @@
+{
+  "name": "Stock Price to Google Sheets",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -4048,
+        -432
+      ],
+      "id": "c91466dc-f267-470e-a170-b875a972b55e",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1vcH21SrrKpMq0jPgpY8FGAEI2FSfEnRhQjgaT-mlbyY/edit?gid=0#gid=0",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vcH21SrrKpMq0jPgpY8FGAEI2FSfEnRhQjgaT-mlbyY/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "symbol": "={{ $json.symbol }}",
+            "name": "={{ $json.name }}",
+            "open": "={{ $json.open }}",
+            "datetime": "={{ $json.datetime }}",
+            "high": "={{ $json.high }}",
+            "low": "={{ $json.low }}",
+            "close": "={{ $json.close }}",
+            "volume": "={{ $json.volume }}",
+            "change": "={{ $json.change }}",
+            "percent_change": "={{ $json.percent_change }}",
+            "fifty_two_week_low": "={{ $json.fifty_two_week_low }}",
+            "fifty_two_week_high": "={{ $json.fifty_two_week_high }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "symbol",
+              "displayName": "symbol",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "datetime",
+              "displayName": "datetime",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "last_quote_at",
+              "displayName": "last_quote_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "open",
+              "displayName": "open",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "high",
+              "displayName": "high",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "low",
+              "displayName": "low",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "close",
+              "displayName": "close",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "volume",
+              "displayName": "volume",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "previous_close",
+              "displayName": "previous_close",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "change",
+              "displayName": "change",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "percent_change",
+              "displayName": "percent_change",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "fifty_two_week_low",
+              "displayName": "fifty_two_week_low",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "fifty_two_week_high",
+              "displayName": "fifty_two_week_high",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "c9fdd720-1f3b-4189-9937-e8bdbed4d289",
+      "name": "Append to Google Sheets1",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        -2704,
+        -448
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "bHIhLewDZK5opdrr",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -3408,
+        -432
+      ],
+      "id": "4efe499e-6943-4490-8872-a5e3c6d2b85b",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1a708169-2f0f-487b-8b2c-2dac86359839",
+              "name": "symbols",
+              "value": "[\"AAPL\", \"MSFT\"]",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -3824,
+        -432
+      ],
+      "id": "a8d33417-9de0-41d6-9726-1b49fa73b138",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.twelvedata.com/quote?symbol={{ $('Code in JavaScript').item.json.symbolString }}&apikey={{ $json.key }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -3104,
+        -112
+      ],
+      "id": "5c663606-7c30-42b2-8612-59efdaa86f1b",
+      "name": "HTTP Request",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "amount": 10
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -2880,
+        -112
+      ],
+      "id": "8edbba6e-7c79-496b-ad00-0a204484b82b",
+      "name": "Wait",
+      "webhookId": "052915cc-c24f-443e-bef7-841f1c653d90"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the symbols from the Set node\nconst data = $input.first().json;\n\n// Check if symbols is a string or array\nlet symbols;\nif (typeof data.symbols === 'string') {\n  // If it's a string like '[\"AAPL\",\"MSFT\"]', parse it\n  symbols = JSON.parse(data.symbols);\n} else {\n  // If it's already an array, use it directly\n  symbols = data.symbols;\n}\n\n// Join with commas\nconst symbolString = symbols.join(',');\n\n// Build the URL with your API key\nconst url = `https://api.twelvedata.com/quote?symbol=${symbolString}&apikey=7df826a9529d4a5b99f38f131c9880e1`;\n\nconst key = '7df826a9529d4a5b99f38f131c9880e1';\n\n// Return the URL\nreturn {\n  url: url,\n  symbolString: symbolString,\n  key:key\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -3648,
+        -432
+      ],
+      "id": "02921988-4a59-4403-acb4-7c049a441a39",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 672,
+        "width": 1712,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -4176,
+        -560
+      ],
+      "id": "81d2e63c-4fee-48a0-a657-991d3511affd",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        -3072,
+        -448
+      ],
+      "id": "43e24ea2-2721-4584-837a-c5267d386f4f",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "jsCode": "const output = [];\n\nfor (const item of $input.all()) {\n  const wrapper = item.json.data ? item.json.data[0] : item.json;\n\n  for (const quote of Object.values(wrapper)) {\n    if (quote && typeof quote === 'object' && quote.symbol) {\n      output.push({\n        json: {\n          symbol: quote.symbol,\n          name: quote.name,\n          datetime: quote.datetime,\n          open: parseFloat(quote.open),\n          high: parseFloat(quote.high),\n          low: parseFloat(quote.low),\n          close: parseFloat(quote.close),\n          volume: parseInt(quote.volume),\n          change: parseFloat(quote.change),\n          percent_change: parseFloat(quote.percent_change),\n          fifty_two_week_low: parseFloat(quote.fifty_two_week?.low),\n          fifty_two_week_high: parseFloat(quote.fifty_two_week?.high),\n        }\n      });\n    }\n  }\n}\n\nreturn output;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2880,
+        -448
+      ],
+      "id": "b38403d0-5ca8-43df-9c2b-a705388c304e",
+      "name": "Code in JavaScript1"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append to Google Sheets1": {
+      "main": [
+        []
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "Append to Google Sheets1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "1ec778ec-eab9-4919-83ac-017e6582e6f4",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "cd2d6d090bec980a61182aeea2966176f04ce91f1c7cb02cef7e29111398fa7d"
+  },
+  "nodeGroups": [],
+  "id": "jpA0482QtMK1Rjlg",
+  "tags": [
+    {
+      "updatedAt": "2026-07-24T14:17:59.915Z",
+      "createdAt": "2026-07-24T14:17:59.915Z",
+      "id": "4xWOBrjeyMqGzJX4",
+      "name": "Twelve Data"
+    },
+    {
+      "updatedAt": "2026-07-24T14:17:59.940Z",
+      "createdAt": "2026-07-24T14:17:59.940Z",
+      "id": "E4HbUu8n9DnrR3cH",
+      "name": "Example"
+    },
+    {
+      "updatedAt": "2026-07-24T14:17:59.927Z",
+      "createdAt": "2026-07-24T14:17:59.927Z",
+      "id": "zR6DVzGCP0X1KwCz",
+      "name": "Google Sheets"
+    }
+  ]
+}
